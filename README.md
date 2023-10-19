@@ -20,18 +20,25 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [digitalocean_droplet.controller](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet) | resource |
+| [digitalocean_droplet.worker](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet) | resource |
 | [digitalocean_firewall.lfs258-controller](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/firewall) | resource |
 | [digitalocean_firewall.lfs258-worker](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/firewall) | resource |
 | [digitalocean_tag.controller](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/tag) | resource |
 | [digitalocean_tag.lfs258](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/tag) | resource |
 | [digitalocean_tag.worker](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/tag) | resource |
 | [digitalocean_vpc.lfs258](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/vpc) | resource |
+| [digitalocean_image.debian](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/data-sources/image) | data source |
+| [digitalocean_ssh_key.pop_os](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/data-sources/ssh_key) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_home_ip"></a> [home\_ip](#input\_home\_ip) | Personal home IP. Using a variable to keep it protected | `string` | n/a | yes |
+| <a name="input_home_ip"></a> [home\_ip](#input\_home\_ip) | Personal home IP; using a variable to keep it protected | `string` | n/a | yes |
+| <a name="input_num_controllers"></a> [num\_controllers](#input\_num\_controllers) | Number of controller Droplets to create | `number` | `1` | no |
+| <a name="input_num_workers"></a> [num\_workers](#input\_num\_workers) | Number of worker Droplets to create | `number` | `2` | no |
+| <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | CIDR of the cluster VPC | `string` | `"10.255.0.0/16"` | no |
 
 ## Outputs
 

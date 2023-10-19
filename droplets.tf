@@ -16,10 +16,10 @@ resource "digitalocean_droplet" "controller" {
 
 resource "digitalocean_droplet" "worker" {
   count      = var.num_workers
-  image      = data.digitalocean_image.debian.id
-  name       = "worker-${count.index}"
   backups    = false
+  image      = data.digitalocean_image.debian.id
   monitoring = false
+  name       = "worker-${count.index}"
   region     = "nyc3"
   size       = "s-2vcpu-4gb"
   ssh_keys   = [data.digitalocean_ssh_key.pop_os.id]

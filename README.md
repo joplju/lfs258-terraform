@@ -35,7 +35,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_home_ip"></a> [home\_ip](#input\_home\_ip) | Personal home IP; using a variable to keep it protected | `string` | n/a | yes |
+| <a name="input_home_ip_cidr"></a> [home\_ip\_cidr](#input\_home\_ip\_cidr) | Personal home IP in CIDR notation | `string` | n/a | yes |
 | <a name="input_num_controllers"></a> [num\_controllers](#input\_num\_controllers) | Number of controller Droplets to create | `number` | `1` | no |
 | <a name="input_num_workers"></a> [num\_workers](#input\_num\_workers) | Number of worker Droplets to create | `number` | `2` | no |
 | <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | CIDR of the cluster VPC | `string` | `"10.255.0.0/16"` | no |

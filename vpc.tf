@@ -16,14 +16,14 @@ resource "digitalocean_firewall" "lfs258-controller" {
     protocol   = "tcp"
     port_range = "22"
     source_addresses = [
-      var.home_ip,
+      var.home_ip_cidr,
     ]
   }
   inbound_rule {
     protocol   = "tcp"
     port_range = "443"
     source_addresses = [
-      var.home_ip,
+      var.home_ip_cidr,
     ]
   }
 }
@@ -39,7 +39,7 @@ resource "digitalocean_firewall" "lfs258-worker" {
     protocol   = "tcp"
     port_range = "22"
     source_addresses = [
-      var.home_ip,
+      var.home_ip_cidr,
     ]
   }
 }

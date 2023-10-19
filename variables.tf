@@ -1,6 +1,11 @@
-variable "home_ip" {
-  description = "Personal home IP; using a variable to keep it protected"
+variable "home_ip_cidr" {
+  # This is a variable to keep it protected.
+  description = "Personal home IP in CIDR notation"
   type        = string
+  validation {
+    condition     = can(cidrhost(var.home_ip_cidr, 0))
+    error_message = "Must be a valid IPv4 CIDR"
+  }
 }
 
 variable "num_controllers" {

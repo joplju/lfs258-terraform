@@ -26,6 +26,11 @@ resource "digitalocean_firewall" "lfs258-controller" {
       var.home_ip_cidr,
     ]
   }
+  inbound_rule {
+    protocol    = "tcp"
+    port_range  = "1-65535"
+    source_tags = [digitalocean_tag.worker.id]
+  }
 }
 
 resource "digitalocean_firewall" "lfs258-worker" {
@@ -41,5 +46,10 @@ resource "digitalocean_firewall" "lfs258-worker" {
     source_addresses = [
       var.home_ip_cidr,
     ]
+  }
+  inbound_rule {
+    protocol    = "tcp"
+    port_range  = "1-65535"
+    source_tags = [digitalocean_tag.controller.id]
   }
 }

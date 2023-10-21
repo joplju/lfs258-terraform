@@ -31,6 +31,14 @@ resource "digitalocean_firewall" "lfs258-controller" {
     port_range  = "1-65535"
     source_tags = [digitalocean_tag.worker.id]
   }
+  outbound_rule {
+    protocol   = "tcp"
+    port_range = "1-65535"
+    #tfsec:ignore:digitalocean-compute-no-public-egress
+    destination_addresses = [
+      "0.0.0.0/0",
+    ]
+  }
 }
 
 resource "digitalocean_firewall" "lfs258-worker" {
@@ -51,5 +59,13 @@ resource "digitalocean_firewall" "lfs258-worker" {
     protocol    = "tcp"
     port_range  = "1-65535"
     source_tags = [digitalocean_tag.controller.id]
+  }
+  outbound_rule {
+    protocol   = "tcp"
+    port_range = "1-65535"
+    #tfsec:ignore:digitalocean-compute-no-public-egress
+    destination_addresses = [
+      "0.0.0.0/0",
+    ]
   }
 }

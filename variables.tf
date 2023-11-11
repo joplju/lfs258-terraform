@@ -21,7 +21,7 @@ variable "num_workers" {
 }
 
 variable "vpc_cidr" {
-  default     = "10.255.0.0/16"
+  default     = "172.16.0.0/24"
   description = "CIDR of the cluster VPC"
   type        = string
   validation {

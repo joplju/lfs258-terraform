@@ -22,6 +22,11 @@ resource "digitalocean_firewall" "lfs258-controller" {
   }
   inbound_rule {
     protocol         = "tcp"
+    port_range       = "80"
+    source_addresses = [var.home_ip_cidr]
+  }
+  inbound_rule {
+    protocol         = "tcp"
     port_range       = "443"
     source_addresses = [var.home_ip_cidr]
   }
@@ -78,6 +83,9 @@ resource "digitalocean_firewall" "lfs258-controller" {
     source_tags = [
       digitalocean_tag.controller.id,
       digitalocean_tag.worker.id
+    ]
+    source_addresses = [
+      var.home_ip_cidr
     ]
   }
   # VXLAN, for Cilium
